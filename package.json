@@ -1,0 +1,25 @@
+{
+  "name": "northwnd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:debug": "npx playwright test --debug",
+    "test:ui": "npx playwright test --ui",
+    "test:headed": "npx playwright test --headed",
+    "report": "npx playwright show-report",
+    "deploy-tests": "sqlcmd -S \"THINKPAD,58098\" -U sa -P \"Passw0rd1\" -d \"Northwind\" -i \"enhanced-database-integrity-tests.sql\"",
+    "deploy-individual": "cd sql_test && sqlcmd -S \"THINKPAD,58098\" -U sa -P \"Passw0rd1\" -d \"Northwind\" -i \"00_DEPLOY_ALL_TESTS.sql\"",
+    "validate-sql": "cd sql_test && sqlcmd -S \"THINKPAD,58098\" -U sa -P \"Passw0rd1\" -d \"Northwind\" -i \"99_QUICK_VALIDATION.sql\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.54.2"
+  },
+  "dependencies": {
+    "mssql": "^11.0.1"
+  }
+}
